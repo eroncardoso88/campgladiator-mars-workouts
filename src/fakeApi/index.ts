@@ -1,27 +1,7 @@
 import { createDatabase } from './basedb'
-import workoutsData from './initialData'
-import trainersData from './trainers'
-
-export interface Workouts {
-  description: string;
-  thumbnail: string;
-  levelTag: string;
-  media: string;
-  title: string;
-  impactTag: string;
-  id: string;
-  trainerId: string;
-  duration: number
-}
-
-export interface Trainers {
-  name: string;
-  id: string;
-}
-
-export interface WorkoutData extends Workouts {
-  name: string
-}
+import workoutsData from './mock/initialData'
+import trainersData from './mock/trainers'
+import type { Workouts, WorkoutData } from '@/types'
 
 const WorkoutsDB = createDatabase<WorkoutData>()
 const workoutsDB = new WorkoutsDB()
