@@ -1,5 +1,5 @@
-import { InMemoryDatabase } from './basedb'
-import workoutsData from './basedb'
+import { createDatabase } from './basedb'
+import workoutsData from './initialData'
 
 export interface Workouts {
   description: string;
@@ -13,5 +13,11 @@ export interface Workouts {
   duration: number
 }
 
-const workoutsDB = new InMemoryDatabase<Workouts>()
+const WorkoutsDB = createDatabase<Workouts>()
+const workoutsDB = new WorkoutsDB()
 
+workoutsData.forEach((workout: Workouts) => {
+  workoutsDB.set(workout)
+})
+
+export { workoutsDB }
