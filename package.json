@@ -9,14 +9,27 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@campgladiator/cgui-core.molecules.chat-bubble": "^0.0.2",
+    "@campgladiator/cgui-core.organisms.footer": "^1.0.3",
+    "@campgladiator/cgui-core.styles.breakpoints": "0.0.4",
+    "@campgladiator/cgui-core.styles.helpers.grid": "^0.0.3",
+    "@campgladiator/cgui-core.styles.variables.colors": "^0.0.3",
+    "@campgladiator/cgui-core.styles.variables.layout": "^0.0.3",
+    "@campgladiator/cgui-core.styles.variables.typography": "^0.0.3",
+    "dart-sass": "^1.25.0",
     "framer-motion": "^6.5.1",
+    "node-sass": "^7.0.1",
+    "path": "^0.12.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@types/node": "^18.0.6",
     "@types/react": "^18.0.15",
     "@types/react-dom": "^18.0.6",
     "@vitejs/plugin-react": "^2.0.0",
+    "sass": "^1.54.0",
+    "sass-loader": "^13.0.2",
     "typescript": "^4.6.4",
     "vite": "^3.0.0"
   }
