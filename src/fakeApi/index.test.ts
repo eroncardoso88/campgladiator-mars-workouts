@@ -1,8 +1,8 @@
-import { createDatabase } from './basedb'
+import { createDatabase, timeout } from './basedb'
 
 describe('Api tests', () => {
 
-  test('Should return a class with api-like methods', () => {
+  test('Should return a class with api-like methods', async () => {
     interface Pokemon {
       type: string;
       name: string;
@@ -18,12 +18,18 @@ describe('Api tests', () => {
       id: "3"
     })
 
-    expect(pokemonDB.getAll()).toStrictEqual({
+    expect(await pokemonDB.getAll()).toStrictEqual({
       "3": {
         id: "3",
         name: "charmander",
         type: "fire"
       }
     })
+  })
+
+  test('timeout should return a number between 0.25 and 2.75', () => {
+    const timeoutTest = timeout()
+
+    expect(timeoutTest).toBeLessThan(3)
   })
 })
