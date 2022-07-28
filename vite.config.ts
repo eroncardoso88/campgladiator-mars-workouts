@@ -17,6 +17,7 @@ export default defineConfig({
       },
       scss: {
         charset: false,
+        additionalData: `@import "./src/styles/global";`
       },
     },
   }

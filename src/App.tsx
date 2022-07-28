@@ -1,5 +1,5 @@
 import { Footer } from "@campgladiator/cgui-core.organisms.footer";
-import "./App.css";
+import "./App.scss";
 import { useEffect, useState } from "react";
 import { workoutsDB } from './fakeApi/index'
 
@@ -10,7 +10,7 @@ function App() {
   }, [])
 
   return (
-    <div className="App">
+    <div>
       <Footer />
     </div>
   );

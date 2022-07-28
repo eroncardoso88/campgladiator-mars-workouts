@@ -10,6 +10,9 @@
     "test": "jest"
   },
   "dependencies": {
+    "@campgladiator/cgui-core.atoms.avatar": "^0.0.4",
+    "@campgladiator/cgui-core.atoms.logo": "^0.0.7",
+    "@campgladiator/cgui-core.atoms.typography": "^0.0.7",
     "@campgladiator/cgui-core.molecules.chat-bubble": "^0.0.2",
     "@campgladiator/cgui-core.organisms.footer": "^1.0.3",
     "@campgladiator/cgui-core.styles.breakpoints": "0.0.4",
