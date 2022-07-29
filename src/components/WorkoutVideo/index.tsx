@@ -66,6 +66,7 @@ export const WorkoutVideo: FunctionComponent = () => {
             <source src={workout.media} type="video/mp4" />
           </Video>
         )}
+        <br/>
       </div>
     </div>
   );
