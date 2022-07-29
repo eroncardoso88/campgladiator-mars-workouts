@@ -54,6 +54,7 @@ export const WorkoutVideo: FunctionComponent = () => {
         <Paragraph size="small" weight="book">
           {workout?.description}
         </Paragraph>
+        <br/>
         {workout?.media && (
           <Video
             autoPlay
