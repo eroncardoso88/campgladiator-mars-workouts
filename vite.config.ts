@@ -7,7 +7,8 @@ export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
-      '~@campgladiator': path.join(__dirname, '/node_modules/@campgladiator/')
+      '~@campgladiator': path.join(__dirname, '/node_modules/@campgladiator/'),
+      '@': path.resolve(__dirname, 'src')
     }
   },
   css: {

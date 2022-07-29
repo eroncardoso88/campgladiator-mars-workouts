@@ -7,7 +7,7 @@ export const timeout = () => Math.floor(Math.random() * (2.5 - 0.25 + 1)) + 0.25
 export interface Database<T extends BaseRecord> {
   set(newValue: T): void
   get(id: string): Promise<T | undefined>
-  getAll(): Promise<Record<string, T>> | undefined
+  getAll(): Promise<T[]> | undefined
 }
 
 export function createDatabase<T extends BaseRecord>() {
@@ -27,10 +27,10 @@ export function createDatabase<T extends BaseRecord>() {
       });
     }
 
-    public getAll(): Promise<Record<string, T>> {
+    public getAll(): Promise<T[]> {
       return new Promise((resolve) => {
         setTimeout(
-          () => resolve(this.db),
+          () => {resolve(Object.values(this.db))},
           timeout()
         );
       });

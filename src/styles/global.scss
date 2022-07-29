@@ -1,6 +1,29 @@
+@use "sass:map";
 @import "~@campgladiator/cgui-core.styles.breakpoints/breakpoints.module.scss";
 @import "~@campgladiator/cgui-core.styles.variables.colors/colors.module.scss";
 @import "~@campgladiator/cgui-core.styles.fonts.gotham/gotham.module.scss";
 @import "~@campgladiator/cgui-core.styles.fonts.united/united.module.scss";
 @import "~@campgladiator/cgui-core.styles.helpers.grid/grid.module.scss";
 @import "~@campgladiator/cgui-core.styles.variables.typography/typography.module.scss";
+$cardsLength: 20;
+
+@mixin standardBorder {
+  border: 0px;
+  border-radius: 24px;
+  @include breakpoint('tablet-small') {
+    border-radius: 32px;
+  }
+}
+
+@mixin getBackground($number) {
+  background:linear-gradient(
+    180deg,
+    rgba(19, 58, 58, 0.1) 0%,
+    rgba(58, 58, 58, 0.2) 45%,
+    rgba(0, 0, 0, 0.55) 58%,
+    rgba(0, 0, 0, 1) 83%,
+    rgba(0, 0, 0, 1) 100%
+  ),
+  var(--url-bg-#{$number});
+  background-position: center top;
+}
