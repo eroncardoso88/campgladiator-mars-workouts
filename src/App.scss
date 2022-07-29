@@ -63,6 +63,10 @@ html, body, .page, .content {
         @include getBackground($i);
       }
     }
+    &__box {
+      width: 100%;
+      padding: 0 7.5px;
+    }
   }
 
   .card {
@@ -70,12 +74,13 @@ html, body, .page, .content {
     height: 405px;
     // max-width: 368px;
     margin: 0 7.5px;
+    cursor: pointer;
     @include standardBorder;
 
     &__info {
       height: 100%;
       width: 100%;
-      padding: 1rem;
+      padding: 1.5rem;
       display: flex;
       flex-direction: column;
       justify-content: flex-end;

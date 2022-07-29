@@ -1,12 +1,10 @@
 import { Footer } from "@campgladiator/cgui-core.organisms.footer";
 import "./App.scss";
-import { useEffect, useState } from "react";
-import { Logo } from "@campgladiator/cgui-core.atoms.logo";
 import { Heading } from "@campgladiator/cgui-core.atoms.typography";
-import { Workouts } from "./components/Workouts";
+import { Views } from '@/views'
+import { BrowserRouter } from "react-router-dom";
 
 function App() {
-
   return (
     <div className="page">
       <header className="row">
@@ -18,10 +16,11 @@ function App() {
             Mars Virtual Workouts
           </Heading>
         </div>
-          {/* <Logo type="full" width="200px" fullType="red-white"/> */}
       </header>
       <main>
-        <Workouts />
+        <BrowserRouter>
+          <Views />
+        </BrowserRouter>
       </main>
       <Footer />
     </div>

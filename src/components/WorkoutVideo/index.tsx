@@ -2,9 +2,9 @@ import { FunctionComponent, useEffect, useState } from "react";
 import { Workout } from "../Workout";
 import { workoutsDB } from "@/fakeApi";
 import type { WorkoutData } from '@/types';
-import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
-export const Workouts: FunctionComponent = () => {
+export const WorkoutVideo: FunctionComponent = () => {
   const [workouts, setWorkouts] = useState<WorkoutData[]>([])
   const [loading, setLoading] = useState(true)
 
@@ -25,14 +25,10 @@ export const Workouts: FunctionComponent = () => {
   }
 
   return (
-    <motion.div
-      className="row content"
-      initial="initial"
-      animate="enter"
-      exit="exit"
-      variants={{ exit: { transition: { staggerChildren: 0.1 } } }}
-    >
-      {!loading && workouts.map((workout, i) => <Workout {...workout} elementIndex={i} key={workout.id}/>)}
-    </motion.div>
+    <div className="row content">
+      <Link to="/">
+        <p>oie</p>
+      </Link>
+    </div>
   )
 }

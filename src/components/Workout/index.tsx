@@ -2,6 +2,8 @@ import { FunctionComponent, useEffect, useState, useMemo } from "react";
 import type { WorkoutData } from "@/types";
 import { Heading, Paragraph } from "@campgladiator/cgui-core.atoms.typography";
 import { Icon } from '@campgladiator/cgui-core.atoms.icon'
+import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom'
 interface IWorkout extends WorkoutData {
   elementIndex: number
 }
@@ -12,18 +14,29 @@ enum Impacts {
   advanced = 5
 }
 
+const transition = { duration: 0.5, ease: [0.43, 0.13, 0.23, 0.96] };
+
+const cardVariants = {
+  hover: { scale: 0.95 }
+}
+
+const workoutCardVariants = {
+  initial: { scale: 0.9, opacity: 0 },
+  enter: { scale: 1, opacity: 1, transition },
+  exit: {
+    scale: 0.5,
+    opacity: 0,
+    transition: { ...transition, duration: 1 }
+  }
+};
+
 
 export const Workout: FunctionComponent<IWorkout> = ({
-  description,
   duration,
   id,
-  impactTag,
   levelTag,
-  media,
   name,
-  thumbnail,
   title,
-  trainerId,
   elementIndex
 }) => {
   const [teste, setTeste] = useState(false)
@@ -32,24 +45,41 @@ export const Workout: FunctionComponent<IWorkout> = ({
   const stars = useMemo(() => Array.from({length: Impacts[levelTag]}), [id])
 
   return (
-      <div className={`col12 colSm6 colLg4 card-grid`}>
-        <div className={`card cardBg-${elementIndex}`} onClick={() => setTeste(!teste)}>
-          <div className={"card__info"}>
-            <Heading type="h3" variation="default" font="gotham">
-              {name}
-            </Heading>
-            <div className={"card__level-tag"}>
-              {stars.map((_, index)=> {
-                return (
-                  <Icon.Solid name={"icon-dumbbell"} key={index} className={levelTag}/>
-                )
-              })}
+    <Link
+      to={`/workout/${id}`}
+      className={`col12 colSm6 colLg4 card-grid`}
+    >
+      <motion.div
+        variants={workoutCardVariants}
+        className={`card-grid__box`}
+      >
+          <motion.div
+          className={`card cardBg-${elementIndex}`}
+          onClick={() => setTeste(!teste)}
+          whileHover="hover"
+          variants={cardVariants}
+          transition={transition}
+          >
+            <div className={"card__info"}>
+              <Heading type="h3" variation="default" font="gotham">
+                {name}
+              </Heading>
+              <div className={"card__level-tag"}>
+                {stars.map((_, index)=> {
+                  return (
+                    <Icon.Solid name={"icon-dumbbell"} key={index} className={levelTag}/>
+                    )
+                  })}
+              </div>
+              <Paragraph size="large" weight="book">
+                {title}
+              </Paragraph>
+              <Paragraph size="small" weight="book">
+                ({duration} minutes)
+              </Paragraph>
             </div>
-            <Paragraph size="large" weight="book">
-              {title}
-            </Paragraph>
-          </div>
-        </div>
-      </div>
+          </motion.div>
+      </motion.div>
+    </Link>
   )
 }
